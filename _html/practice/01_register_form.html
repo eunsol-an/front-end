@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+</head>
+<body>
+    <h3><a href="index.html">Index로 돌아가기</a></h3>
+    <div class="wrap">
+        <form action="">
+            <table border="1">
+                <tr>
+                    <td colspan="3">
+                        회원가입 | Member Private Information
+                        약관동의 실명확인 회원가입 정보수정
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">기본정보 입력</td>
+                </tr>
+                <tr>
+                    <td><label for="id">아이디</label></td>
+                    <td colspan="2">
+                        <input type="text" name="id" id="id" required>
+                        <button type="button">중복검색</button>영문
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="pw">비밀번호</label></td>
+                    <td colspan="2">
+                        <input type="password" name="pw" id="pw" required>→재확인
+                        <input type="password" name="re-pw" id="re-pw">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="pw-hint">비밀번호힌트</label></td>
+                    <td colspan="2">
+                        <input type="text" name="pw-hint" id="pw-hint" required>비번분실-조회시 참고할 내용
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="name">이름(본명)</label></td>
+                    <td colspan="2">
+                        <input type="text" name="name" id="name" required>→한글
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="nick">닉네임(별명)</label></td>
+                    <td colspan="2">
+                        <input type="text" name="nick" id="nick" required>
+                        <button type="button">중복검색</button>한글,영문
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">전자메일주소</label></td>
+                    <td><input type="email" name="email" id="email" required></td>
+                    <td><input type="checkbox" name="email-priv" id="email-priv"><label for="email-priv">비공개</label></td>
+                </tr>
+                <tr>
+                    <td><label for="birth">생년월일</label></td>
+                    <td>
+                        <select name="birth" id="birth" required>
+                            <option value="year">년</option>
+                            <option value="2022">2022년</option>
+                            <option value="2021">2021년</option>
+                            <option value="2020">2020년</option>
+                            <option value="2019">2019년</option>
+                            <option value="2018">2018년</option>
+                        </select>
+                        <select required>
+                            <option value="month">월</option>
+                            <option value="01">1월</option>
+                            <option value="02">2월</option>
+                            <option value="03">3월</option>
+                            <option value="04">4월</option>
+                            <option value="05">5월</option>
+                            <option value="06">6월</option>
+                            <option value="07">7월</option>
+                            <option value="08">8월</option>
+                            <option value="09">9월</option>
+                            <option value="10">10월</option>
+                            <option value="11">11월</option>
+                            <option value="12">12월</option>
+                        </select>
+                        <select required>
+                            <option value="day">일</option>
+                            <option value="01">1일</option>
+                            <option value="02">2일</option>
+                            <option value="03">3일</option>
+                            <option value="04">4일</option>
+                            <option value="05">5일</option>
+                            <option value="06">6일</option>
+                            <option value="07">7일</option>
+                            <option value="08">8일</option>
+                            <option value="09">9일</option>
+                            <option value="10">10일</option>
+                            <option value="11">11일</option>
+                            <option value="12">12일</option>
+                        </select>
+                        <input type="radio" name="eum-yang" id="eum"><label for="eum">음</label>
+                        <input type="radio" name="eum-yang" id="yang" checked><label for="yang">양</label>
+                    </td>
+                    <td><input type="checkbox" name="birth-priv" id="birth-priv"><label for="birth-priv">비공개</label></td>
+                </tr>
+                <tr>
+                    <td><label for="r">성 별</label></td>
+                    <td>
+                        <input type="radio" name="gender" id="male"><label for="male">남자</label>
+                        <input type="radio" name="gender" id="female"><label for="female">여자</label>
+                    </td>
+                    <td><input type="checkbox" name="gender-priv" id="gender-priv" disabled><label for="gender-priv">비공개</label></td>
+                </tr>
+                <tr>
+                    <td><label for="code">우편번호</label></td>
+                    <td colspan="2"><input type="number" name="code1" id="code">-<input type="text" name="code2" id="code"><button type="button">찾아보기</button></td>
+                </tr>
+                <tr>
+                    <td><label for="adress">주소</label></td>
+                    <td><input type="text" name="adress" id="adress"><br><input type="text" name="code2" id="code">←나머지주소</td>
+                    <td><input type="checkbox" name="adress-priv" id="adress-priv" checked><label for="adress-priv">비공개</label></td>
+                </tr>
+                <tr>
+                    <td><label for="tel">일반전화 번호</label></td>
+                    <td>
+                        <select name="tel-code" id="tel-code">
+                            <option value="tel-code">국번</option>
+                            <option value="02">02</option>
+                            <option value="032">032</option>
+                        </select>
+                        -<input type="tel" name="tel1" id="tel1" pattern="[0-9]{3}">-<input type="tel" name="tel2" id="tel2" pattern="[0-9]{4}">
+                    </td>
+                    <td><input type="checkbox" name="tel-priv" id="tel-priv" checked><label for="tel-priv">비공개</label></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">휴대전화 번호</label></td>
+                    <td>
+                        <select name="phone-code" id="phone-code">
+                            <option value="phone-code">국번</option>
+                            <option value="010">010</option>
+                            <option value="011">011</option>
+                        </select>
+                        -<input type="tel" name="phone1" id="phone1" pattern="[0-9]{3}">-<input type="tel" name="phone2" id="phone2" pattern="[0-9]{3}">
+                    </td>
+                    <td><input type="checkbox" name="phone-priv" id="phone-priv" checked><label for="phone-priv">비공개</label></td>
+                </tr>
+                <tr>
+                    <td><label for="homepage">홈페이지</label></td>
+                    <td><input type="url" name="homepage" id="homepage" value="http://"></td>
+                    <td><input type="checkbox" name="homepage-priv" id="homepage-priv"><label for="homepage-priv">비공개</label></td>
+                </tr>
+                <tr>
+                    <td><label for="introduce">소개,인사말</label></td>
+                    <td colspan="2"><textarea name="introduce" id="introduce" cols="30" rows="5">반갑습니다.</textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="3">추가정보 입력</td>
+                </tr>
+                <tr>
+                    <td><label for="img">사진첨부</label></td>
+                    <td colspan="2">
+                        <div><input type="file" name="img" id="img"></div>
+                        <div><small>200 X 200 픽셀 이하 크기만 허용</small></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="icon">이름표시 아이콘</label></td>
+                    <td colspan="2">
+                        <div><input type="file" name="icon" id="icon"><button type="button">찾아보기</button></div>
+                        <div><small>25 X 20 픽셀 이하 크기만 허용</small></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">혼인여부</label></td>
+                    <td>
+                        <input type="radio" name="married" id="single"><label for="single">미혼</label>
+                        <input type="radio" name="married" id="married"><label for="married">기혼</label>
+                        <input type="radio" name="married" id="divorce"><label for="divorce">이혼</label>
+                        <input type="radio" name="married" id="dating"><label for="dating">교제중</label>
+                    </td>
+                    <td><input type="checkbox" name="married-priv" id="married-priv"><label for="married-priv">비공개</label></td>
+                </tr>
+                <tr>
+                    <td><label for="interests">관심분야</label></td>
+                    <td>
+                        <select name="interests" id="interests">
+                            <option value="interests-list">선택없음</option>
+                            <option value="coding">코딩</option>
+                            <option value="design">디자인</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="interests-priv" id="interests-priv"><label for="interests-priv">비공개</label></td>
+                </tr>
+                <tr>
+                    <td><label for="cha">캐릭터 선택</label></td>
+                    <td colspan="2"><input type="file" name="cha" id="cha"></td>
+                </tr>
+                <tr>
+                    <td><label for="mail-un">메일링 수신거부</label></td>
+                    <td colspan="2"><input type="checkbox" name="mail-un" id="mail-un"><label for="mail-un">메일링 수신 거부시 체크.</label></td>
+                </tr>
+                <tr>
+                    <td><label for="note-un">쪽지 수신거부</label></td>
+                    <td colspan="2"><input type="checkbox" name="note-un" id="note-un"><label for="note-un">쪽지 수신 거부시 체크.</label></td>
+                </tr>
+                <tr>
+                    <td><label for="private">전체 비공개</label></td>
+                    <td colspan="2"><input type="checkbox" name="private" id="private"><label for="private">회원등록정보 전체 비공개시 체크.</label></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center;">
+                        <button type="submit">입력완료전송</button>
+                        <button type="reset">다시입력하기</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
