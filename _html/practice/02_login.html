@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .wrap {
+            width: 300px;
+            margin: auto;
+        }
+        .title {
+            text-align: center;
+            margin: 100px 0;
+        }
+        .form-control {
+            width: 280px;
+            height: 40px;
+            border-style: none;
+            border-bottom: 1px solid gray;
+            padding: 0 10px;
+            margin: 20px 0;
+        }
+        .btn {
+            width: 300px;
+            height: 45px;
+            margin: 7px 0;
+        }
+        .btn:hover {
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 0.9rem;
+        }
+        .login-find {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .login-api {
+            margin: 40px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="title">
+            <h1>LOGIN</h1>
+        </div>
+        <form action="">
+            <div class="form-group">
+                <input type="text" name="userid" class="form-control" placeholder="아이디를 입력해주세요">
+                <input type="password" name="userpw" class="form-control" placeholder="비밀번호를 입력해주세요">
+            </div>
+            <div class="btn-group">
+                <button type="submit" class="btn">로그인</button>
+                <button type="button" class="btn">회원가입</button>
+            </div>
+            <div>
+                <ul class="login-find">
+                    <li><a href="">아이디 찾기</a></li>
+                    <li><a href="">비밀번호 찾기</a></li>
+                    <li><a href="">비회원 주문조회</a></li>
+                </ul>
+            </div>
+        </form>
+        <div class="login-api">
+            <a href=""><img src="../images/kakao_login.png" alt=""></a>
+            <a href=""><img src="" alt=""></a>
+        </div>
+    </div>
+</body>
+
+</html>
