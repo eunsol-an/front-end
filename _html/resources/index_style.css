@@ -1,0 +1,21 @@
+h1 {
+    color: powderblue;
+}
+
+ol {
+    margin-left: 20px;
+}
+
+li {
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    font-size: 1.5em;
+    background-color: powderblue;
+}
