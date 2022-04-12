@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>의사 선택자</title>
+    <style>
+        a {
+            /* background-color: antiquewhite; */
+            text-decoration: none;
+            color: black;
+        }
+        a:link {
+            font-size: 1.5em;
+        }
+        a:visited {
+            /* a 태그에 기본 배경색이 있어야만 의사선택자 적용 */
+            /* background-color: blueviolet; */
+        }
+        a:hover {
+            color: blueviolet;
+        }
+        a:active {
+            color: tomato;
+        }
+        ul li:first-child {
+            color: yellow;
+        }
+        ul li:last-child {
+            color: aquamarine;
+        }
+        ol li:nth-child() {
+            /* odd, 2n+1 : 홀수번째 / eve, 2n : 짝수번째 선택
+            괄호안의 파라미터는 수열공식을 넣을 수 있다 */
+            color: red
+        }
+        ol li::after {
+            content: "번째";
+        }
+        ol li::before {
+            content: "LI 태그";
+        }
+        li.links a::after {
+            content: "로 이동하기";
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        대상 노드에 이벤트나 효과를 적용하게 된다는 가정하에 만들어지는 선택자
+    </h1>
+    <h3>
+        <pre>
+            <em>presentation tag</em>
+            공백, 엔터 효과 그대로 적용, 내부에서 작성된 태그도 그대로 적용
+            인용구, 시, 가사등을 표현할 때 주로 사용
+            a:hover는 반드시:link 및 a:visited 뒤에 와야 합니다.
+            a:active는 반드시:hover 다음에 와야 합니다.
+        </pre>
+    </h3>
+    <ul>
+        <li class="links">
+            <a href="https://www.naver.com">네이버</a>
+            무언가 설명하듯이 쓴 설명
+        </li>
+        <li class="links">
+            <a href="https://www.daum.net">다음</a>
+        </li>
+        <li class="links">
+            <a href="https://www.google.com">구글</a>
+        </li>
+        <li class="links">
+            <a href="http://www.nate.com">네이트</a>
+        </li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ol>
+</body>
+</html>
