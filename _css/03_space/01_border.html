@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경계선</title>
+    <style>
+        /* h1, h3, ol, div, h4, p, ul, li {
+            border: 1px solid red; short-hand
+            border-width: 1px;
+            border-style: solid;
+            border-color: red;
+        } */
+        h1 {
+            /* 경계선은 border의 기본 3개 속성을 우선 적용한 후 스타일링 한다 */
+            border: 3px solid red;
+            border-radius: 10px;
+        }
+        h3 {
+            border: 3px dashed green;
+        }
+        ol li {
+            list-style: none;
+        }
+        ol li {
+            border-width: 5px;
+            border-color: blueviolet;
+            border-left-style: solid;
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        .list {
+            border-width: 1px 1px 5px 5px;
+            border-color: red green blue yellow;
+            border-style: solid;
+        }
+        h4 {
+            border: 3px solid red;
+            border-radius: 1px 5px 10px 20px;
+        }
+        ol {
+            border-width: 1px 20px;
+            border-color: red yellow;
+            border-style: solid double;
+            border-radius: 1px 20px;
+        }
+        p {
+            border-width: 10px 20px 9px;
+            border-color: red yellow green;
+            border-style: double solid dashed;
+            border-radius: 1px 20px 30px;
+        }
+        .bg {
+            width: 300px;
+            height: 300px;
+            background-image: url("../../_html/images/cat.jfif");
+            background-position: bottom;
+            background-size: cover;
+            border-radius: 10px;
+        }
+        .card {
+            text-align: center;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <h1>경계선은 html elements간의 영역을 구분하는 기준이 됨</h1>
+    <h3>경계선은 box model을 기준으로 거의 모든 태그에 존재함</h3>
+    <ol>
+        <li>경계선 두께 : border-width</li>
+        <li>경계선 색상 : border-color</li>
+        <li>경계선 모양 : border-style</li>
+        <li>경계선 모서리 곡률 : border-radius</li>
+    </ol>
+    <div class="container">
+        <h4 class="title">Title</h4>
+        <p class="content">Content</p>
+        <ul class="list">
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+        </ul>
+    </div>
+    <div class="bg">
+        <div class="card">Cute Cat</div>
+    </div>
+</body>
+</html>
