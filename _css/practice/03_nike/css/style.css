@@ -1,0 +1,52 @@
+/* html {
+    background: linear-gradient( rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5) ), url('https://static.nike.com/a/images/w_1920,c_limit/3197962b-884d-453b-b8cd-897df77aba1f/what-to-wear-running-in-different-temperatures.jpg') no-repeat top center fixed;
+    background-size: cover;
+} */
+body {
+    margin: 0;
+}
+.wrap {
+    background: linear-gradient( rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5) ), url(../img/nike_running.jpg) no-repeat top center fixed;
+    background-size: cover;
+    height: 100vh;
+}
+section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    /* height: 300px; */
+    background-color: white;
+    text-align: center;
+}
+.logo-img {
+    width: 70px;
+    height: 70px;
+    background-image: url(../img/nike_logo.png);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+}
+.msg-big {
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 0.5;
+}
+.fa-spinner {
+    font-size: 1.8em;
+}
+.msg-small {
+    font-size: 0.7em;
+    font-weight: bold;
+    color: gray;
+    margin: 10px 0 20px 0;
+}
+.footer {
+    font-size: 0.7em;
+    line-height: 0.5;
+    border-top: 2px solid #efefef;
+    background-color: #f7f7f7;
+    color: grey;
+    padding: 5px 0 15px 0;
+}
