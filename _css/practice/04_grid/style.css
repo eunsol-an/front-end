@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+}
+.wrap div {
+    float: left;
+    height: 200px;
+}
+.red  {
+    background-color: #FF0000;
+}
+.orange {
+    background-color: #FFA500;
+}
+.yellow {
+    background-color: #FFFF00;
+}
+.green {
+    background-color: #008000;
+}
+.blue {
+    background-color: #0000FF;
+}
+.navy {
+    background-color: #4B0082;
+}
+.violet {
+    background-color: #800080;
+}
+.w100 {
+    width: 100%;
+}
+.w50 {
+    width: 50%;
+}
+.w25 {
+    width: 25%;
+}
+.clear-both {
+    clear: both;
+}
