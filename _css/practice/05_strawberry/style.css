@@ -1,0 +1,88 @@
+/* 기본 태그 마진 제거 */
+body, h1, p{
+    margin: 0;
+    padding: 0;
+}
+
+/* 폰트 설정 */
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    font-family: 'Cafe24Ssurround';
+    color: #58595B;
+}
+.font-red {
+    color: rgb(241, 93, 93);
+}
+
+/* 배경화면 설정 */
+body {
+    background-color: #F0E8D9;
+}
+.container {
+    text-align: center;
+}
+
+/* 헤더 설정 */
+header {
+    margin: 75px 0;
+}
+header > h1 {
+    font-size: 64px;
+    margin-bottom: 30px;
+}
+header > p {
+    font-size: 32px;
+}
+
+/* 카드 설정 */
+.card {
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0 auto 50px;
+}
+.card-img {
+    width: 300px;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+}
+.card-msg {
+    padding: 20px;
+}
+
+/* 카드 이미지 설정 */
+.img-crepe {
+    background-image: url(img/crepe.jpg);
+}
+.img-brownie {
+    background-image: url(img/brownie.jpg);
+}
+.img-cake {
+    background-image: url(img/cake.jpg);
+}
+.img-bread {
+    background-image: url(img/bread.jpg);
+}
+
+/* 카드 메세지 설정 */
+.msg-main {
+    font-size: 32px;
+}
+.msg-sub {
+    font-size: 16px;
+    margin: 20px 0 16px 0;
+    text-align: justify;
+    word-spacing: -2px;
+}
+.msg-view {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0000EE;
+}
