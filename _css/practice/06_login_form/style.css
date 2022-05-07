@@ -1,0 +1,60 @@
+/* 지정한 값이 실제값이 되도록 설정, 실무에서 거의 작성되어 있음 */
+* {
+    box-sizing: border-box;
+}
+
+/* 기본태그 마진 패딩 제거 */
+body, a, button{
+    margin: 0;
+    padding: 0;
+}
+
+/* 배경 설정 */
+body {
+    background-color: rgb(27, 188, 155);
+}
+
+/* 로그인 박스 설정 */
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #eaefee;
+    padding: 20px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+/* 로그인 창 설정 */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto 10px;
+    border: none;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+
+/* 버튼 설정 */
+button {
+    width: 100%;
+    background-color: rgb(27, 188, 155);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+button:hover {
+    cursor: pointer;
+    background-color: #5cab98;
+}
+
+/* 비밀번호 찾기 문구 설정 */
+a {
+    display: inline-block;
+    color: #999999;
+    font-size: 0.8em;
+}
