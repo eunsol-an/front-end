@@ -1,0 +1,81 @@
+/* 기본 태그 패딩, 마진 제거 */
+body, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* 배경화면 설정 */
+.container {
+    background: url(img/coding.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+}
+.cover {
+    background-color: rgba(100, 150, 255, 0.7);
+    height: 100vh;
+}
+
+ /* 네비게이션 바 설정 */
+nav {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%), 0 3px 5px 0 rgb(0 0 0 / 19%);
+}
+ul {
+     list-style-type: none;
+     background-color: white;
+     overflow: hidden;
+}
+nav > ul {
+    padding: 0 15px;
+}
+.nav-right {
+    float: right;
+}
+li {
+    float: left;
+}
+li a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    padding: 20px 10px;
+}
+li a:hover {
+    background-color: #eeeeee;
+}
+.logo-img {
+    width: 60px;
+    height: 21px;
+    background-image: url('../03_nike/img/nike_logo.png');
+    background-position: center;
+    background-size: cover;
+}
+
+/* 메세지 박스 설정 */
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+h1 {
+    font-weight: lighter;
+}
+.font-bold {
+    font-weight: bold;
+}
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin: 30px 0;
+    font-weight: bold;
+    color: #4c4c8f;
+}
+button:hover {
+    cursor: pointer;
+    background-color: #e9e9e9;
+}
