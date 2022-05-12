@@ -1,0 +1,104 @@
+/* carousel 부분 */
+.d-block {
+    height: 500px;
+    object-fit: cover;
+}
+.carousel-caption {
+    transform: translateY(-50%);
+}
+.carousel-caption > h3 {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 18px;
+}
+.carousel-caption > p {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 48px;
+}
+.carousel-caption > button {
+    font-size: 16px;
+    color: white;
+    background-color: #5900E7;
+    padding: 10px 30px;
+    border: none;
+}
+
+/* alert 부분 */
+.alert-container {
+    margin: 50px auto 16px;
+    padding: 0 15px;
+}
+
+
+/* card 부분 */
+.card-container {
+    /* display: flex; */
+    /* flex-direction: column; */
+    padding: 0;
+    margin-bottom: 50px;
+
+    overflow: auto;
+}
+.container {
+    margin: 50px auto;
+}
+.card-a {
+    padding: 0 15px;
+    margin-bottom: 20px;
+    /* width: 100%; */
+
+    /* display: inline-block; */
+    /* float: left; */
+}
+.card {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+}
+.card-body {
+    padding: 10px;
+}
+.card-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #4A4A4A;
+    margin-bottom: 10px;
+}
+.card-text {
+    font-weight: bold;
+    font-size: 13px;
+    color: #4A4A4A;
+}
+.fa-user-circle {
+    font-size: 20px !important;
+    color: #5900E7;
+    vertical-align: middle;
+}
+
+/* 미디어 쿼리 768, 1200, 1400 나누기 */
+@media screen and (min-width: 768px) {
+    .card-container {
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+    }
+    .card-a {
+        /* flex: 50%; */
+        width: 50%;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .card-a {
+        /* flex: 33.3%; */
+        width: 33.3%;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .card-a {
+        /* flex: 25%; */
+        width: 25%;
+    }
+}
