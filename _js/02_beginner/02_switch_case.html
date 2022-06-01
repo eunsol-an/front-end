@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case</title>
+</head>
+<body>
+    <h1>switch case 절 : equal 연산을 기반으로 만들어지는 매핑방식의 조건문</h1>
+    <h3>equal 연산 및 반복 탐색연산에서 if else문보다 속도가 조금 더 빠르다고 함</h3>
+    <script>
+        let week = 'monday';
+        switch (week) {
+            case 'monday':
+                console.log('대소문자를 구분하기 때문에 monday는 equal 연산에서 false');
+                break; // break; 가 없으면 다음 case로 연산을 진행함
+            case 'Monday':
+                console.log('대소문자를 구분하기 때문에 monday는 equal 연산에서 true');
+                break; // 즉 break;를 만날때까지 코드가 실행된다는 의미
+            default: // if else if else 절의 else에 해당하는 절
+                console.log("위의 case 조건이 어느 하나도 만족하지 않을때 실행되는 영역")
+                break; // 마찬가지로 break; 필수!!
+        }
+    </script>
+    <h1>여러분은 HTML, CSS, JavaScript 과목에 대한 테스트를 치뤘다고 가정합시다 </h1>
+    <ul>
+        <li>각 과목의 점수를 랜덤으로 60~100점까지 생성하여 할당한 후</li>
+        <li>과목의 총점과 평균을 출력하시오</li>
+        <li>평균이 90점 이상이면 A, 80점 이상이면 B, 70점 이상이면 C, 60점 이상이면 D</li>
+        <li>단, 평균에 따른 학점산출은 switch 문을 사용하여 작성할 것</li>
+    </ul>
+    <!-- <button type="button" id="makeBtn">과목 점수 생성</button> -->
+    <button type="button" id="resultBtn">학점 계산</button>
+    <table border="1">
+        <tr>
+            <td></td>
+            <th>점수</th>
+        </tr>
+        <tr>
+            <th>HTML</th>
+            <td id="htmlScore"></td>
+        </tr>
+        <tr>
+            <th>CSS</th>
+            <td id="cssScore"></td>
+        </tr>
+        <tr>
+            <th>JavaScript</th>
+            <td id="jsScore"></td>
+        </tr>
+        <tr>
+            <th>총점</th>
+            <td id="totalScore"></td>
+        </tr>
+        <tr>
+            <th>평균</th>
+            <td id="averScore"></td>
+        </tr>
+        <tr>
+            <th>학점</th>
+            <td id="grade"></td>
+        </tr>
+    <script>
+        // 랜덤 점수 생성 함수
+        function makeScore() {
+            return Math.floor(Math.random()*61)+40;
+        }
+
+        // 점수 계산 함수
+        function calcScore() {
+            let htmlScore = makeScore();
+            let cssScore = makeScore();
+            let jsScore = makeScore();
+            let totalScore = htmlScore + cssScore + jsScore;
+            let averScore = Math.round(totalScore / 3);
+            console.log(totalScore, typeof averScore);
+            let grade = '';
+            let key = parseInt(averScore/10);
+            switch (key) {
+                case 10:
+                case 9:
+                    grade = 'A'
+                    break;
+                case 8:
+                    grade = 'B'
+                    break;
+                case 7:
+                    grade = 'C'
+                    break;
+                case 6:
+                    grade = 'D'
+                    break;
+                default:
+                    grade = 'F'
+                    break;
+            }
+            console.log(htmlScore, cssScore, jsScore, totalScore, averScore, grade);
+            return printResult(htmlScore, cssScore, jsScore, totalScore, averScore, grade);
+        }
+        
+        // 결과 출력 함수
+        function printResult(h, c, j, t, a, g) {
+            document.getElementById('htmlScore').innerText = h;
+            document.getElementById('cssScore').innerText = c;
+            document.getElementById('jsScore').innerText = j;
+            document.getElementById('totalScore').innerText = t;
+            document.getElementById('averScore').innerText = a;
+            document.getElementById('grade').innerText = g;
+        }
+        document.getElementById('resultBtn').addEventListener('click', calcScore);
+    </script>
+</body>
+</html>
