@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중첩반복문</title>
+    <style>
+        td {
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>반복문 내에 반복문 : 원리를 이해하면 어렵지 않아요~</h1>
+    <ul>
+        <li>outer while : 바깥쪽 반복문 - 기준</li>
+        <li>inner while : 안쪽 반복문 - 기준이 반복될 때마다 다시 실행</li>
+    </ul>
+    <h3>구구단 한 번 만들어 보세요</h3>
+    <button id="printBtn">구구단!</button>
+    <h3 id="printResult"></h3>
+    <button id="tableBtn">구구단 표!</button>
+    <div id="tableResult"></div>
+    <script>
+        document.getElementById('printBtn').addEventListener('click', function() {
+            let dan = 2;
+            while (dan <= 9) {
+                document.getElementById('printResult').innerHTML += `${dan}단 출력!<br>`;
+                let count = 1;
+                while (count <= 9) {
+                    document.getElementById('printResult').innerHTML += `${dan} x ${count} = ${dan*count}<br>`;
+                    count++;
+                }
+                document.getElementById('printResult').innerHTML += `<br>`;
+                dan++;
+            }
+        });
+
+        document.getElementById('tableBtn').addEventListener('click', function() {
+            let count = 1;
+            let str = `<table border="1">`;
+            while (count <= 9) {
+                str += `<tr>`;
+                let dan = 2;
+                while (dan <= 9) {
+                    str += `<td>${dan} x ${count} = ${dan*count}</td>`;
+                    dan++;
+                }
+                str += `</tr>`;
+                count++;
+            }
+            str += `</table>`;
+            document.getElementById('tableResult').innerHTML = str;
+        })
+    </script>
+</body>
+</html>
