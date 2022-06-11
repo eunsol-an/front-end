@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 구조화</title>
+</head>
+<body>
+    <h1>많은양의 데이터가 실시간으로 전달되어야 할 때 가장 효율적인 방식은 구조화된 텍스트</h1>
+    <ul>
+        <li>구조화된 텍스트를 만들기 위해 JSON 데이터를 많이 활용하고 있음</li>
+        <li>자바스크립트의 객체 형태를 갖고 있기 때문에 구조파악이 쉽고 제작도 어렵지 않다</li>
+        <li>특히 웹분야에서는 자바스크립트가 모든 프론트 영역에 호환이 된다는 점을 활용하여 데이터 수집 및 출력용으로 거의 모든 플랫폼 서비스에서 사용되고 있음</li>
+        <li>예를들어 파이썬으로 수집한 데이터를 자바기반 웹 서비스에서 출력하고 싶다면?</li>
+        <li>파이썬으로 JSON 데이터를 만들어 파일로 자바기반 서버에 전송해주면 자바기반 서버는 웹으로 그 JSON 데이터를 뷰(프론트)영역에 출력시키면 된다</li>
+    </ul>
+    <script>
+        // https://finance.naver.com/ 의 TOP 종목 데이터를 구조화 해보기
+        const top = {
+            "거래상위": [
+                {
+                    name: 'KODEX 200선물인버스2X',
+                    price: 2515,
+                    updown: -100,
+                    ratio: -3.82,
+                },
+                {
+                    name: '메이슨캐피탈',
+                    price: 786,
+                    updown: 75,
+                    ratio: 10.55,
+                },
+                {
+                    name: '메이슨캐피탈',
+                    priceInfo: [
+                        786, 75, 10.55, 711, 900, 133956316, 780, 772, 111787
+                    ]
+                },{},{},
+            ],
+            "상승": [],
+            "하락": [],
+            "시가총액 상위": [],
+        };
+        const section = {
+            '환전 고시 환율': [
+                {
+                    country: '미국USD',
+                    price: 1227.00,
+                    updown: -5.00,
+                },
+                {
+                    country: '일본JPY (100엔)',
+                    price: 973.23,
+                    updown: -7.94,
+                },
+                {
+                    country: '유럽연합EUR',
+                    price: 1329.70,
+                    updown: -8.93,
+                },
+                {
+                    country: '중국CNY',
+                    price: 192.48,
+                    updown: -0.62,
+                }
+            ],
+            '국제 시장 환율': [
+                {
+                    currency: '달러/일본 엔',
+                    price: 125.1600,
+                    updown: -0.36,
+                },
+                {
+                    currency: '유로/달러',
+                    price: 1.08740,
+                    updown: -0.00,
+                },
+                {
+                    currency: '파운드/달러',
+                    price: 1.3038,
+                    updown: -0.00,
+                },
+                {
+                    currency: '달러인덱스',
+                    price: 100.2900,
+                    updown: 0.37,
+                }
+            ],
+            '금리': [
+                {
+                    name: 'CD(91일)',
+                    rate: 1.51,
+                    updown: '-',
+                },
+                {
+                    name: '콜금리',
+                    rate: 1.18,
+                    updown: 0.02,
+                },
+                {
+                    name: '국고채(3년)',
+                    rate: 3.00,
+                    updown: -0.10,
+                },
+                {
+                    name: '회사채(3년)',
+                    rate: 3.68,
+                    updown: -0.09,
+                }
+            ],
+            
+        };
+    </script>
+</body>
+</html>
