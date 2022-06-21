@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class, constructor</title>
+</head>
+<body>
+    <h1>클래스, 객체, 생성자</h1>
+    <script>
+        class Car {
+            constructor(name, year) { // 자바스크립트에서는 생성자는 1개만 허용
+                this.name = name;
+                this.year = year;
+                this.model = "";
+            }
+        }
+        
+        // const myCar1 = {name: '포르쉐', year: 2022};
+        // const myCar2 = {name: '그랜져', year: 202};
+
+        let myCar1 = new Car('포르쉐', 2022);
+        let myCar2 = new Car('그랜져', 2021);
+
+        // 권장하지 않는 방식
+        let myCar3 = new Car();
+        myCar3.name = '소나타';
+        myCar3.year = 2020;
+
+        let myCar4 = new Car('XG');
+        let myCar5 = new Car('그랜져', 2020);
+        myCar5.model = "XG";
+
+        console.log(myCar1.name, myCar1.year);
+        console.log(myCar2.name, myCar2.year);
+        console.log(myCar3.name, myCar3.year);
+        console.log(myCar5);
+        console.log(myCar5.model);
+
+        class roomInfo {
+            constructor(roomNum, checkIn, checkOut, occupied) {
+                this.roomNum = (i, j) => (i+1) + (j<9?"0":"") + (j+1);
+                this.checkIn = "";
+                this.checkOut = "";
+                this.occupied = false;
+            }
+        }
+        // 호텔 객실 정보 생성
+        const hotel = [];
+        function hotelInitialize(floor, rooms) {
+            for (let i = 0; i < floor; i++) {
+                let floors = [];
+                for (let j = 0; j < rooms; j++) {
+                    let room = {};
+                    room.rn = `${i+1}${j<9?"0":""}${j+1}`;
+                    room.checkIn = "";
+                    room.checkOut = "";
+                    room.occupied = false;
+                    floors.push(room);
+                    
+                }
+                hotel.push(floors);
+            }
+        }
+
+    </script>
+</body>
+</html>
