@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document의 객체들</title>
+</head>
+<body>
+    <h1>document의 객체 List</h1>
+    <ul id="ul"></ul>
+    <a href="a">1</a>
+    <a href="b">2</a>
+    <a href="c">3</a>
+    <a href="d">4</a>
+    <a href="e">5</a>
+    <a href="f">6</a>
+    <a href="g">7</a>
+    <a href="h">8</a>
+    <a href="i">9</a>
+    <a href="j">10</a>
+    <script>
+        for (const key in document) {
+            document.getElementById('ul').innerHTML +=
+            `<li>${key} : ${document[key]}</li>`;
+            if (key == 'links') {
+                for (const anchor of document[key]) { // HTMLCollection
+                    anchor.innerText = anchor;
+                    console.log(anchor)
+                }
+                console.log(document[key].length);
+            }
+        }
+    </script>
+</body>
+</html>
