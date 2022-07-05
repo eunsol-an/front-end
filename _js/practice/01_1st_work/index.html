@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>첫주차 도전과제</title>
+</head>
+<body>
+    <h1>form에서 입력한 데이터를 받아와 자바스크립트 객체로 저장한 후 그 객체에 저장된 데이터를 html list로 출력하기</h1>
+    <ul>
+        <li>데이터를 저장하는 버튼을 클릭하면 form에 입력된 데이터가 객체에 저장된다</li>
+        <li>출력 버튼을 클릭하면 객체의 데이터가 html list로 출력된다</li>
+    </ul>
+    <h3 id="ok">데이터 리스트</h3>
+    <ol id="list">
+        <li id="nameVal">이름</li>
+        <li id="addrVal">거주지</li>
+        <li>
+            좋아하는 리스트
+            <ul id="favor">
+                <li>1.</li>
+                <li>2.</li>
+                <li>3.</li>
+            </ul>
+        </li>
+        <li id="emailVal">이메일</li>
+        <li id="pet_check_val">pet 소유 여부</li>
+        <li id="wantVal">지금 가장 원하는 것</li>
+    </ol>
+    <h3>리스트의 구조에 따라 자바스크립트 객체를 만들어 볼 것</h3>
+    <hr>
+    <!-- 1. 저장 버튼 눌러서 form 태그로 입력 받기 -->
+    <!-- 2. 입력 받은 데이터를 객체에 저장 -->
+    <!-- 3. 출력 버튼 눌러서 객체에 저장된 데이터를 html list로 출력하기 -->
+    <form action="" id="myForm">
+        <fieldset>
+            <legend>데이터를 객체에 저장하고 불러오기</legend>
+            이름: <input type="text" id="name"><br>
+            거주지: <input type="text" id="addr"><br>
+            좋아하는 리스트1: <input type="text" id="favor_list1"><br>
+            좋아하는 리스트2: <input type="text" id="favor_list2"><br>
+            좋아하는 리스트3: <input type="text" id="favor_list3"><br>
+            이메일: <input type="email" name="email" id="email"><br>
+            pet 소유 여부: 
+            <input type="radio" name="pet" id="yes" value="네">
+            <label for="yes">네</label>
+            <input type="radio" name="pet" id="no" value="아니요">
+            <label for="no">아니요</label><br>
+            지금 가장 원하는 것: <input type="text" id="want"><br>
+            <button type="button" id="sbmBtn">저장</button>
+            <button type="button" id="printBtn">출력</button>
+        </fieldset>
+    </form>
+    <ol></ol>
+    <script src="index.js"></script>
+    <script>  
+        // onclick 보다 이 방법을 훨씬 많이 씀
+        // document.getElementById('sbmBtn').addEventListener('click', function() {
+        //     saveList();
+        // });
+        sbmBtn.addEventListener('click', saveList);
+        printBtn.addEventListener('click', printList);
+    </script>
+</body>
+</html>
