@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 파일 구분</title>
+</head>
+<body>
+    <h1>input text에 파일명.확장자를 입력하여 전송버튼을 누르면 이미지파일인지 검사하여 이미지 파일이면 정상 파일입니다.
+        이미지 파일이 아니면 이미지 파일만 가능합니다. 라고 출력하기
+    </h1>
+    <form action="">
+        이미지 파일 이름 : <input type="text" id="fileName">
+        <button type="button" id="sbmBtn">전송</button>
+    </form>
+    <script>
+        document.getElementById('sbmBtn').addEventListener('click',showMessage);
+
+        // 이미지 파일 판별 함수
+        function imageFileValid(imageFileName) {
+            // 대문자로 된 확장자명도 소문자기준으로 판단 가능해야 함
+            return imageFileName.endsWith("png") ? true
+             : imageFileName.endsWith("jpg") ? true
+             : imageFileName.endsWith("jpeg") ? true
+             : imageFileName.endsWith("gif") ? true
+             : false;
+        }
+
+        // 데이터 받아오는 함수
+        getDatas = () => document.getElementById('fileName').value.toLowerCase();
+
+        // 메세지 출력 함수 - alert으로 출력
+        function showMessage() {
+            imageFileValid(getDatas()) ? alert('정상 파일입니다.') : alert('이미지 파일만 가능합니다.')
+        }
+    </script>
+</body>
+</html>
