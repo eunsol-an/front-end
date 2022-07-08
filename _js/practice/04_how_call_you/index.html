@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국에서 호칭 선택하기</title>
+</head>
+<body>
+    <h1>외국인들이 가장 어려워하는 것 중 하나가 한국인들의 호칭</h1>
+    <h3>부르는 사람: 성별, 나이</h3>
+    <h3>부르는 대상: 성별, 나이</h3>
+    <h3>을 입력받으면 어떻게 부르는 지를 출력해주는 로직을 완성해보시오</h3>
+    
+    <form action="">
+        부르는 사람:
+        <input type="radio" name="myGen" id="myFemale" value="여자">
+        <label for="myFemale">여자</label>
+        <input type="radio" name="myGen" id="myMale" value="남자">
+        <label for="myMale">남자</label>
+        <input type="number" id="myAge" placeholder="나이"><br>
+        부르는 대상:
+        <input type="radio" name="yourGen" id="yourFemale" value="여자">
+        <label for="yourFemale">여자</label>
+        <input type="radio" name="yourGen" id="yourMale" value="남자">
+        <label for="yourMale">남자</label>
+        <input type="number" id="yourAge" placeholder="나이"><br>
+        <button type="button" id="resultBtn">어떻게 부르면 될까요?</button>
+        <h2 id="resultMsg"></h2>
+    </form>
+    <script>
+        // 데이터를 받는 함수
+        function getDatas() {
+            // 부르는 사람 정보
+            let myGen = document.querySelector('input[name=myGen]:checked').value;
+            let myAge = parseInt(document.getElementById('myAge').value);
+            // 부르는 대상 정보
+            let yourGen = document.querySelector('input[name=yourGen]:checked').value;
+            let yourAge = parseInt(document.getElementById('yourAge').value);
+            console.log(myGen, myAge, yourGen, yourAge + '데이터함수');
+            checkId(myGen, myAge, yourGen, yourAge);
+            // return myGen, myAge, yourGen, yourAge;
+        }
+
+        // 성별과 나이를 판별하는 함수
+        function checkId(myGen, myAge, yourGen, yourAge) {
+            let resultMsg = '';
+            
+            // 강사님 로직
+            if (myAge == yourAge) {
+                resultMsg = `우리는 친구!`;
+            } else if (myAge > yourAge) {
+                resultMsg = yourGen == '남자' ? `남동생` : `여동생`;
+            } else {
+                if (myGen == '남자') {
+                    resultMsg = yourGen == '남자' ? `형` : `누나`;
+                } else {
+                    resultMsg = yourGen == '남자' ? `오빠` : `언니`;
+                }
+            }
+            console.log(myGen, myAge, yourGen, yourAge + '판별함수');
+            showMsg(resultMsg);
+        }
+
+        // 메세지 출력 함수
+        function showMsg(resultMsg) {
+            document.getElementById('resultMsg').innerText = resultMsg;
+        }
+        document.getElementById('resultBtn').addEventListener('click', getDatas); // 데이터 받는 함수 호출
+    </script>
+</body>
+</html>
