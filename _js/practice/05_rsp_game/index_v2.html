@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위 바위 보 게임</title>
+</head>
+<body>
+    <h1>컴퓨터가 가위바위보를 정하면 나도 가위 바위 보 버튼 중 한개를 선택하여 게임을 한다</h1>
+    <h3>총 5번의 게임에서 각 게임마다 승 무 패를 출력한다</h3>
+    <button type="button" id="s" value="0">가위</button>
+    <button type="button" id="r" value="1">바위</button>
+    <button type="button" id="p" value="2">보</button>
+    <h2>컴퓨터: <span id="com"></span> / 나: <span id="my"></span></h2>
+    <h2 id="resultMsg"></h2>
+    <h3 id="resultPer"></h3>
+    <button type="button" id="resetBtn" style="display: none;">다시 시작</button>
+    <script>
+        // 컴퓨터 가위바위보 함수
+        function makeRsp() {
+            // 가위:0, 바위:1, 보:2
+            return Math.floor(Math.random()*3);
+        }
+
+        // 가위바위보 게임 함수
+        let same = 0, lose = 0, win = 0;
+        let count = 0;
+        let com = '';
+        let my = '';
+        function gameRsp(comNum, myNum) {
+            document.getElementById('resultMsg').style.display = "block";
+            document.getElementById('resultPer').style.display = "block";
+            console.log(comNum);
+            let resultMsg = '';
+            if (comNum == myNum) {
+                same++;
+                resultMsg = '무승부!';
+                switch (comNum) {
+                    case 0:
+                        com = '가위', my = '가위';
+                        break;
+                    case 1:
+                        com = '바위', my = '바위';
+                        break;
+                    case 2:
+                        com = '보', my = '보';
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                if (myNum == 0) {
+                    switch (comNum) {
+                        case 1:
+                            lose++;
+                            com = '바위', my = '가위'
+                            resultMsg = '졌습니다!'
+                            break;
+                        case 2:
+                            win++;
+                            com = '보', my = '가위'
+                            resultMsg = '이겼습니다!'
+                            break;
+                        default:
+                            break;
+                    }
+                } else if (myNum == 1) {
+                    switch (comNum) {
+                        case 0:
+                            win++;
+                            com = '가위', my = '바위';
+                            resultMsg = '이겼습니다!';
+                            break;
+                        case 2:
+                            lose++;
+                            com = '보', my = '바위';
+                            resultMsg = '졌습니다!';
+                            break;
+                        default:
+                            break;
+                    }
+                } else {
+                    switch (comNum) {
+                        case 0:
+                            lose++;
+                            com = '가위', my = '보';
+                            resultMsg = '졌습니다!'
+                            break;
+                        case 1:
+                            win++;
+                            com = '바위', my = '보';
+                            resultMsg = '이겼습니다!'
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            console.log(resultMsg, same, lose, win);
+            printRsp(resultMsg, same, lose, win, com, my);
+        }
+
+        // 결과 출력 함수
+        function printRsp(resultMsg, same, lose, win, com, my) {
+            document.getElementById('resultMsg').innerText = resultMsg;
+            document.getElementById('resultPer').innerHTML = `승: ${win}, 무: ${same}, 패: ${lose}`
+            document.getElementById('com').innerText = com;
+            document.getElementById('my').innerText = my;
+            console.log(com, my)
+        }
+
+        // 게임 다시시작 함수
+        function resetRsp() {
+            count = 0, same = 0, lose = 0, win = 0;
+            document.getElementById('resultMsg').style.display = "none";
+            document.getElementById('resultPer').style.display = "none";
+            document.getElementById('resetBtn').style.display = "none";
+            document.getElementById('com').innerText = '';
+            document.getElementById('my').innerText = '';
+            document.getElementById('s').disabled = false;
+            document.getElementById('r').disabled = false;
+            document.getElementById('p').disabled = false;
+        }
+
+        // 함수 호출 하면서 횟수제한 5번
+        document.addEventListener('click', function (e) {
+            let targetId = e.target.id;
+            if (targetId == 's' || targetId == 'r' || targetId == 'p') {
+                if (count < 5) {
+                    document.getElementById('my').innerText = targetId;
+                    let my = document.getElementById(targetId).value;
+                    gameRsp(makeRsp(), my);
+                    count++;
+                } else {
+                    document.getElementById('resultMsg').innerText = '5번의 기회가 끝났습니다. 다시 시작 버튼을 눌러주세요!'
+                    document.getElementById('resetBtn').style.display = "block"
+                    document.getElementById('s').disabled = true;
+                    document.getElementById('r').disabled = true;
+                    document.getElementById('p').disabled = true;
+                }
+            }
+        })
+        document.getElementById('resetBtn').addEventListener('click', resetRsp);
+    </script>
+</body>
+</html>
