@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>각 달의 마지막 날 구하기</title>
+</head>
+<body>
+    <h1>1월 부터 12월을 입력하면 그 입력한 달의 마지막 일이 몇일 인지 출력(switch문 활용)</h1>
+    <!-- <input type="text" id="month" placeholder="월을 입력해주세요."> -->
+    <select name="month" id="month">
+        <option value="0">월</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+    <button type="button" id="resultBtn">마지막 일이 며칠일까?</button>
+    <h2 id="resultMsg"></h2>
+    <script>
+        function getDatas() {
+            let month = parseInt(document.getElementById('month').value);
+            console.log(month, typeof month)
+            checkLastDay(month);
+        }
+
+        function checkLastDay(month) {
+            let resultMsg = '';
+            switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    resultMsg = `${month}월의 마지막 일은 31일 입니다.`
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    resultMsg = `${month}월의 마지막 일은 30일 입니다.`
+                    break;
+                case 2:
+                    resultMsg = `${month}월의 마지막 일은 28일 혹은 29일 입니다.`
+                    break;
+                default:
+                    resultMsg = '월을 입력해주세요!'
+            }
+            printResult(resultMsg)
+        }
+        function printResult(resultMsg) {
+            document.getElementById('resultMsg').innerText = resultMsg;
+        }
+        document.getElementById('resultBtn').addEventListener('click', getDatas)
+
+        let flag = 12 == "12"; // true
+        switch (flag) {
+            case true:
+                console.log("boolean도 case문에서 활용될 수 있는가?")
+                break;
+            case false:
+                console.log("boolean도 case문에서 활용될 수 있는가????")
+                break;
+            default:
+                break;
+        }
+    </script>
+</body>
+</html>
