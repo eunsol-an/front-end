@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 퀴즈</title>
+</head>
+<body>
+    <h1>구구단 영역 (2X2=4 ~ 9x9=81) 내에서 랜덤으로 한개를 문제로 내면 정답을 맞추는 로직</h1>
+    <ul>
+        <li>총 10개의 문제가 랜덤으로 출제되며</li>
+        <li>문제를 풀 때 정답, 오답의 결과를 출력해야 하고</li>
+        <li>10 문제 중 정답의 갯수를 기록하여 정답률을 출력한다</li>
+    </ul>
+    <h2>기회는 단 10번! 구구단을 외자! 구구단을 외자!</h2>
+    <button type="button" id="startBtn">시작하기</button>
+    <h3 id="printGugudan"></h3>
+    <input type="number" id="userNum">
+    <button type="button" id="sbmBtn">제출</button>
+    <h3 id="resultMsg"></h3>
+    <h3 id="resultPer"></h3>
+    <script>
+        // 게임 시작 함수(대부분의 설정 초기화)
+        let answer = 0;
+        function startGame() {
+            count = 0;
+            o = 0;
+            x = 0;
+            document.getElementById('resultMsg').style.display = "none";
+            document.getElementById('resultPer').style.display = "none";
+            document.getElementById('printGugudan').style.visibility = "visible";
+            document.getElementById('sbmBtn').disabled = false;
+            makeGugudan();
+        }
+
+        // 구구단 문제 출제 함수
+        function makeGugudan() {
+            let rNum1 = Math.floor(Math.random()*8)+2;
+            let rNum2 = Math.floor(Math.random()*9)+1;
+            answer = rNum1 * rNum2;
+            document.getElementById('printGugudan').innerText = `${rNum1} X ${rNum2} = ?`;
+        }
+
+        // 정답과 유저 입력값 비교 함수
+        let count = 0;
+        let o = 0;
+        let x = 0;
+        function compareNum() {
+            document.getElementById('resultMsg').style.display = "block";
+            document.getElementById('resultPer').style.display = "block";
+            let userNum = parseInt(document.getElementById('userNum').value);
+            let resultMsg = '';
+            if (count < 10) {
+                count++;
+                if (userNum == answer) {
+                    o++;
+                    resultMsg = '정답!'
+                } else {
+                    x++;
+                    resultMsg = '땡!'
+                }
+            } else {
+                resultMsg = `10번의 기회가 모두 끝났습니다. 정답률은 ${o * 10}% 입니다. 다시 시작하려면 시작하기 버튼을 눌러주세요!`;
+                document.getElementById('sbmBtn').disabled = true;
+                document.getElementById('printGugudan').style.visibility = "hidden";
+            }
+            document.getElementById('userNum').value = '';
+            printResult(resultMsg, o, x);
+        }
+
+        // 결과 출력 함수
+        function printResult(resultMsg, o, x) {
+            document.getElementById('resultMsg').innerText = resultMsg;
+            document.getElementById('resultPer').innerHTML = `정답: ${o}개, 오답: ${x}개`;
+        }
+        document.getElementById('startBtn').addEventListener('click', startGame);
+        document.getElementById('sbmBtn').addEventListener('click', compareNum);
+        document.getElementById('sbmBtn').addEventListener('click', makeGugudan);
+    </script>
+</body>
+</html>
