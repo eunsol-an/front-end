@@ -1,0 +1,67 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 퀴즈</title>
+</head>
+<body>
+    <h1>구구단 영역 (2x2=4 ~ 9x9=81) 내에서 랜덤으로 한개를 문제로 내면 정답을 맞추는 로직</h1>
+    <ul>
+        <li>총 10개의 문제가 랜덤으로 출제되며</li>
+        <li>문제를 풀 때 정답, 오답의 결과를 출력해야 하고</li>
+        <li>10 문제 중 정답의 갯수를 기록하여 정답률을 출력한다</li>
+    </ul>
+    <button type="button" id="startBtn">시작하기</button>
+    <ol id="printGugudan"></ol>
+    <button type="button" id="sbmBtn">정답확인</button>
+    <h3 id="resultMsg"></h3>
+    <script>
+        // 문제 출제 카운트
+        let count = 0;
+
+        // 문제 답 저장 객체 선언
+        const ansObj = {};
+
+        // 문제 출제하고 답은 객체에 저장
+        document.getElementById('startBtn').addEventListener('click', function(){
+            do{
+                count++;
+                let rNum1 = Math.floor(Math.random()*8)+2;
+                let rNum2 = Math.floor(Math.random()*9)+1;
+                ansObj[`ans${count}`] = rNum1 * rNum2;
+                document.getElementById('printGugudan').innerHTML
+                += `<li>${rNum1} x ${rNum2} = ? <input type="text" id="userNum${count}"></li>`;
+            } while (count < 10);
+            console.log(ansObj);
+        });
+
+        // 답 비교 카운트
+        let count2 = 0;
+
+        // 정답수 변수 선언
+        let correct = 0;
+
+        // 객체에 저장된 정답과 유저가 입력한 숫자 비교하고 정답여부와 정답률 출력
+        document.getElementById('sbmBtn').addEventListener('click', function(){
+            while (count2 < 10) {
+                count2++;
+                let userNum = document.getElementById(`userNum${count2}`);
+                console.log(userNum)
+                if (userNum.value == ansObj[`ans${count2}`]) {
+                    correct++;
+                    console.log(typeof userNum)
+                    userNum.value += ' : 정답!';
+                    userNum.style.backgroundColor = 'green';
+                } else {
+                    console.log(typeof userNum)
+                    userNum.value += ' : 오답!'
+                    userNum.style.backgroundColor = 'red';
+                }
+            }
+            document.getElementById('resultMsg').innerText = `정답률 : ${(correct/count2)*100}%`
+        });
+    </script>
+</body>
+</html>
