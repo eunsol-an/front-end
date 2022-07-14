@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별찍어보자</title>
+</head>
+<body>
+    <h1>높이(양의 정수)를 입력받으면 직각삼각형의 모양으로 별(*)의 탑이 출력되게 해보세요</h1>
+    <pre>
+        입력받은 숫자 : 5
+        *
+        **
+        ***
+        ****
+        *****
+    </pre>
+    어느 높이로 별탑을 만들까요? <input type="number" id="inputStar">
+    <button id="printBtn">출력</button>
+    <h3 id="printStar"></h3>
+    <script>
+        document.getElementById('printBtn').addEventListener('click', function() {
+            let num = parseInt(document.getElementById('inputStar').value);
+            console.log(num);
+            let i = 0;
+            let result = ``;
+            while (i < num) {
+                let j = 0;
+                while(j < i+1) {
+                    result += `*`;
+                    j++;
+                }
+                result += `<br>`;
+                i++;
+            }
+            document.getElementById('printStar').innerHTML = result;
+        })
+    </script>
+</body>
+</html>
