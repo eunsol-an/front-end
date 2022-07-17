@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팰린드롬</title>
+</head>
+<body>
+    <h1>팰린드롬 : 거꾸로 읽어도 같은 단어인지 판단하기</h1>
+    <ul>
+        <li>단어 입력을 받아 팰린드롬 여부를 출력하세요</li>
+        <li>테스트 단어 예시 : 토마토, 기러기, kayak 그 외 일반 단어</li>
+    </ul>
+    단어 : <input type="text" id="keyword">
+    <button type="button" id="subBtn">팰린드롬일까?</button>
+    <h3 id="printResult"></h3>
+    <script>
+        document.getElementById('subBtn').addEventListener('click', printResult)
+        
+        // 데이터 받아오는 함수
+        getDatas = () => document.getElementById('keyword').value;
+
+        // 팰린드롬 판별 함수
+        function checkKeyword(keyword) {
+            let half = Math.trunc(keyword.length/2); // 6 -> 3, 7 -> 3
+            console.log(keyword.charAt(2));
+            console.log(half);
+            for (let i = 0; i < half; i++) {
+                if (keyword.charAt(i) !== keyword.charAt((keyword.length-1)-i)) {
+                // if (keyword[i] !== keyword[keyword.length-1-i]) { // 이 방식도 위와 같이 작동
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // 결과 출력 함수
+        function printResult() {
+            document.getElementById('printResult').innerText
+            = checkKeyword(getDatas()) ? '맞습니다!' : '아닙니다!';
+        }
+    </script>
+</body>
+</html>
