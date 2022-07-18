@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2nd Work Quiz 3 ver.2</title>
+  <style>
+    .calc {
+      display: flex;
+      flex-wrap: wrap;
+      width: 400px;
+    }
+    #result {
+      width: 400px;
+      height: 100px;
+      border: 1px solid black;
+      font-size: 70px;
+      text-align: right;
+      overflow: auto;
+    }
+    button {
+      width: 100px;
+      height: 100px;
+      font-size: 20px;
+    }
+    #clear {
+      width: 300px;
+    }
+    #n0 {
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    단순 사칙연산 계산기 만들기 (+, -, *, /)
+  </h1>
+  <ul>
+    <li>
+      계산기의 작동은 버튼으로만 조작가능하다
+    </li>
+    <li>
+      연산자는 한 번만 사용하는 것으로 한다
+    </li>
+    <li>
+      버튼 : ., 0~9, +, -, *, /, =, C(clear)
+    </li>
+    <li>
+      계산기의 출력은 수식 = 결과의 형태이어여야 한다 : 12 + 34 = 46
+    </li>
+  </ul>
+  <div class="calc">
+    <div id="result">0</div>
+    <button id="clear">C</button>
+    <button id="divi" class="btns">/</button>
+    <button id="n7" class="btns">7</button>
+    <button id="n8" class="btns">8</button>
+    <button id="n9" class="btns">9</button>
+    <button id="mult" class="btns">*</button>
+    <button id="n4" class="btns">4</button>
+    <button id="n5" class="btns">5</button>
+    <button id="n6" class="btns">6</button>
+    <button id="subt" class="btns">-</button>
+    <button id="n1" class="btns">1</button>
+    <button id="n2" class="btns">2</button>
+    <button id="n3" class="btns">3</button>
+    <button id="plus" class="btns">+</button>
+    <button id="n0" class="btns">0</button>
+    <button id="dot" class="btns">.</button>
+    <button id="equal">=</button>
+  </div>
+  <script>
+    let numOne = '';
+    let numTwo = '';
+    let operator = '';
+    let result = '';
+    const $result = document.getElementById('result');
+
+    // 숫자 버튼 함수
+    const onClickNumber = (n) => {
+      if (operator) {
+        numTwo += n;
+      } else {
+        numOne += n;
+      }
+      console.log(numOne, numTwo);
+      result += n;
+      $result.innerText = result;
+    }
+    document.getElementById('n0').addEventListener('click', function(){onClickNumber('0')});
+    document.getElementById('n1').addEventListener('click', function(){onClickNumber('1')});
+    document.getElementById('n2').addEventListener('click', function(){onClickNumber('2')});
+    document.getElementById('n3').addEventListener('click', function(){onClickNumber('3')});
+    document.getElementById('n4').addEventListener('click', function(){onClickNumber('4')});
+    document.getElementById('n5').addEventListener('click', function(){onClickNumber('5')});
+    document.getElementById('n6').addEventListener('click', function(){onClickNumber('6')});
+    document.getElementById('n7').addEventListener('click', function(){onClickNumber('7')});
+    document.getElementById('n8').addEventListener('click', function(){onClickNumber('8')});
+    document.getElementById('n9').addEventListener('click', function(){onClickNumber('9')});
+
+    // 연산자 버튼 함수
+    const onClickOperator = (o) => {
+      if (numOne && !numTwo) {
+        operator += o;
+        result += o;
+        $result.innerText = result;
+      } else if (!numOne) {
+        alert('숫자를 먼저 입력하세요!');
+      } else if (numOne && numTwo) {
+        alert('연산자는 한 번만 사용 가능합니다!');
+      }
+    }
+    document.getElementById('divi').addEventListener('click', function(){onClickOperator('/')});
+    document.getElementById('mult').addEventListener('click', function(){onClickOperator('*')});
+    document.getElementById('subt').addEventListener('click', function(){onClickOperator('-')});
+    document.getElementById('plus').addEventListener('click', function(){onClickOperator('+')});
+
+    // = 버튼 함수
+    const onClickCalc = () => {
+      switch (operator) {
+        case '+':
+          result = parseInt(numOne) + parseInt(numTwo);
+          break;
+        case '-':
+          result = parseInt(numOne) - parseInt(numTwo);
+          break;
+        case '/':
+          result = parseInt(numOne) / parseInt(numTwo);
+          break;
+        case '*':
+          result = parseInt(numOne) * parseInt(numTwo);
+          break;     
+        default:
+          break;
+      }
+      $result.innerText += "=" + result;
+    }
+    document.getElementById('equal').addEventListener('click',function(){onClickCalc()});
+
+    // c 버튼의 계산기 초기화 함수
+    document.getElementById('clear').addEventListener('click', function(){
+      numOne = numTwo = operator = result = '';
+      document.getElementById('result').innerText = '0';
+    })
+  </script>
+</body>
+</html>
