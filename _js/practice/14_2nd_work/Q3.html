@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2nd Work Quiz 3</title>
+  <style>
+    .calc {
+      display: flex;
+      flex-wrap: wrap;
+      width: 400px;
+    }
+    #result {
+      width: 400px;
+      height: 100px;
+      border: 1px solid black;
+      font-size: 70px;
+      text-align: right;
+      overflow: auto;
+    }
+    button {
+      width: 100px;
+      height: 100px;
+      font-size: 20px;
+    }
+    #clear {
+      width: 300px;
+    }
+    #n0 {
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    단순 사칙연산 계산기 만들기 (+, -, *, /)
+  </h1>
+  <ul>
+    <li>
+      계산기의 작동은 버튼으로만 조작가능하다
+    </li>
+    <li>
+      연산자는 한 번만 사용하는 것으로 한다
+    </li>
+    <li>
+      버튼 : ., 0~9, +, -, *, /, =, C(clear)
+    </li>
+    <li>
+      계산기의 출력은 수식 = 결과의 형태이어여야 한다 : 12 + 34 = 46
+    </li>
+  </ul>
+  <div class="calc">
+    <div id="result">0</div>
+    <button id="clear">C</button>
+    <button id="divi" class="btns">/</button>
+    <button id="n7" class="btns">7</button>
+    <button id="n8" class="btns">8</button>
+    <button id="n9" class="btns">9</button>
+    <button id="mult" class="btns">*</button>
+    <button id="n4" class="btns">4</button>
+    <button id="n5" class="btns">5</button>
+    <button id="n6" class="btns">6</button>
+    <button id="subt" class="btns">-</button>
+    <button id="n1" class="btns">1</button>
+    <button id="n2" class="btns">2</button>
+    <button id="n3" class="btns">3</button>
+    <button id="plus" class="btns">+</button>
+    <button id="n0" class="btns">0</button>
+    <button id="dot" class="btns">.</button>
+    <button id="equal">=</button>
+  </div>
+  <script>
+    let result = '';
+
+    // 숫자와 연산자 버튼의 함수
+    let btns = document.getElementsByClassName('btns');
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function() {
+        result += btns[i].innerText;
+        document.getElementById('result').innerText = result;
+      })
+    }
+
+    // = 버튼의 계산 함수
+    document.getElementById('equal').addEventListener('click', function() {
+      let calcResult = eval(result);
+      result = calcResult;
+      document.getElementById('result').innerText = calcResult;
+        
+    })
+
+    // c 버튼의 계산기 초기화 함수
+    document.getElementById('clear').addEventListener('click', function(){
+      result = '';
+      document.getElementById('result').innerText = '0';
+    })
+  </script>
+</body>
+</html>
