@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>섭씨를 화씨로</title>
+</head>
+<bod>
+    <h1>한국에 있는 친구가 미국에 있는 미쿡 친구에게 온도를 알려주고 싶다고 가정</h1>
+    <ul>
+        <li>섭씨 온도를 입력하면 화씨 온도를 출력해주는 시스템</li>
+        <li>입력한 섭씨 온도는 섭씨 배열에 계속해서 저장이 되고</li>
+        <li>저장된 섭씨 온도는 화씨온도로 변환되서 화씨 온도의 배열로 저장</li>
+        <li>출력 버튼을 클릭하면 섭씨온도 => 화씨온도의 형태로 출력</li>
+    </ul>
+    섭씨 온도 : <input type="number" id="inputC">
+    <button id="saveBtn">저장</button><br>
+    <button id="printBtn">출력</button>
+    <ol id="printResult"></ol>
+    <script>
+        const arrC = [];
+        const arrF = [];
+
+        // 저장 버튼으로 배열에 데이터 저장
+        document.getElementById('saveBtn').addEventListener('click', function(){
+            let c = document.getElementById('inputC').value;
+            arrC[arrC.length] = c;
+        });
+
+        // 온도 단위 변경 함수
+        function changeTemp(arr) {
+            let result = '';
+            for (let i = 0; i < arr.length; i++) {
+                arrF[arrF.length] = (arr[i]*1.8)+32;
+                result += `<li>섭씨온도 : ${arr[i]}°C => 화씨온도 : ${arrF[i]}°F</li>`;
+            }
+            document.getElementById('printResult').innerHTML = result;
+        }
+
+        // 결과 출력
+        document.getElementById('printBtn').addEventListener('click', function(){
+            changeTemp(arrC);
+        });
+    </script>
+</bod>
+</html>
