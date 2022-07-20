@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 만들기</title>
+</head>
+<body>
+    <h1>아래와 같이 만드는 range 함수를 완성해보세요</h1>
+    <h3>파라미터로 시작인덱스, 종료인덱스, 스텝이 들어가는 함수</h3>
+    <ul>
+        <li>range(3, 10, 2) => [3, 5, 7, 9]</li>
+        <li>range(1, 6, 1) => [1, 2, 3, 4, 5]</li>
+        <li>range(10, -10, -4) => [10, 6, 2, -2, -6]</li>
+        <li>range(-1, -9, -3) => [-1, -4, -7]</li>
+        <li>range(-3, 8, 5) => [-3, 2, 7]</li>
+        <li>range(5, 1, -2) => [5, 3]</li>
+    </ul>
+    <script>
+        // 마지막 인덱스의 음수 여부를 조건으로 하면 예외 발생
+        // function range(s, l, n) {
+        //     let answer = [];
+        //     if (l >= 0) {
+        //         while (s < l) {
+        //             answer.push(s);
+        //             s += n;
+        //         }
+        //     } else {
+        //         while (l < s) {
+        //             answer.push(s);
+        //             s += n;
+        //         }
+        //     }
+        //     return answer;
+        // }
+
+        // 시작 인덱스와 마지막 인덱스의 대소 여부를 조건으로
+        function range(s, l, n) {
+            let answer = [];
+            if (s < l) {
+                for (let i = s; i < l; i+=n) {
+                    answer.push(i)
+                }
+            } else {
+                for (let i = s; i > l; i+=n) {
+                    answer.push(i)
+                }
+            }
+            return answer;
+        }
+
+        console.log(range(3, 10, 2));
+        console.log(range(1, 6, 1));
+        console.log(range(10, -10, -4));
+        console.log(range(-1, -9, -3));
+        console.log(range(-3, 8, 5));
+        console.log(range(5, 1, -2));
+    </script>
+</body>
+</html>
