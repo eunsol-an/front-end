@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24절기</title>
+</head>
+<body>
+    <h1>24절기의 절기를 배열에 순서대로 저장 한 후 랜덤으로 몇번째 절기는? 문제 출제 버튼</h1>
+    <ul>
+        <li>24절기를 배열에 선언한다</li>
+        <li>24절기 배열의 인덱스 번호를 활용하여 랜덤으로 몇 번째 절기는? 문제 출제</li>
+        <li>입력해서 정답확인 버튼을 클릭하면 정답 여부와 오답일 경우 정답을 출력한다</li>
+    </ul>
+    <button type="button" id="quizBtn">문제 출제 버튼</button>
+    <h2 id="printQuiz" style="display: none;"><span id="n"></span>번째 절기는?</h2>
+    <input type="text" id="userAnswer">
+    <button id="sbmBtn">정답확인</button>
+    <h2 id="printResult"></h2>
+    <h1 id="ratio">10번의 문제를 출제한 후 10문제를 모두 풀면 더이상 출제가 안되고 정답률이 출력되도록 해보세요</h1>
+    <script>
+        const seasonal = [
+            '입춘', '우수', '경칩', '춘분', '청명', '곡우',
+            '입하', '소만', '망종', '하지', '소서', '대서',
+            '입추', '처서', '백로', '추분', '한로', '상강',
+            '입동', '소설', '대설', '동지', '소한', '대한'
+        ];
+
+        // 랜덤 숫자 생성 함수
+        const makeRandomNum = () => Math.floor(Math.random()*24)+1;
+
+        let answerNum = 0;
+        let answerStr = '';
+        const ansHistory = [];
+
+        // 문제 출제 함수
+        function printQuiz() {
+            document.getElementById('printQuiz').style.display = 'block';
+            document.getElementById('printResult').style.display = 'none';
+            // if (ansHistory.length < 10) {
+            answerNum = makeRandomNum();
+            answerStr = seasonal[answerNum-1]
+            document.getElementById('n').innerText = answerNum;
+            // } else {
+                // document.getElementById('quizBtn').disabled = true;
+            //     document.getElementById('ratio').innerText = `10문제 모두 출제되었습니다`;
+            //     let yesSum = 0;
+            //     for (const yes of ansHistory) {
+            //         yesSum += yes;
+            //     }
+            //     document.getElementById('ratio').innerText = `정답률 : ${(yesSum / ansHistory.length)*100}%`
+            // }
+        }
+        document.getElementById('quizBtn').addEventListener('click', printQuiz);
+
+        // 정답 비교 함수
+        function compareAnswer() {
+            document.getElementById('printResult').style.display = 'block';
+            let userAnswer = document.getElementById('userAnswer').value;
+            let result = '';
+            if (userAnswer == answerStr) {
+                result = `정답! ${answerNum}번째 절기는 ${answerStr}입니다!`;
+                ansHistory.push(1);
+            } else {
+                result = `땡! ${answerNum}번째 절기는 ${answerStr}입니다!`;
+                ansHistory.push(0);
+            }
+            document.getElementById('printResult').innerText = result;
+            console.log(ansHistory);
+        }
+
+        // 시도 횟수 제한 함수
+        function canNotSolve(params) {
+            if (ansHistory.length >= 10) {
+                document.getElementById('quizBtn').disabled = true;
+                document.getElementById('sbmBtn').disabled = true;
+                let countSum = 0;
+                for (const count of ansHistory) {
+                    countSum += count;
+                }
+                document.getElementById('ratio').innerHTML
+                = `10문제 모두 출제되었습니다<br>정답률은 ${(countSum/ansHistory.length)*100}% 입니다`;
+            }
+        }
+        document.getElementById('sbmBtn').addEventListener('click', compareAnswer);
+        document.getElementById('sbmBtn').addEventListener('click', canNotSolve);
+        // document.getElementById('sbmBtn').addEventListener('click', printQuiz);
+
+    </script>
+</body>
+</html>
