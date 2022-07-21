@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 순환</title>
+</head>
+<body>
+    <h1>주어진 데이터를 순환하여 원하는 조건에 맞는 정보를 출력하기</h1>
+    <ol>
+        <li>데이터의 exchanges에서 통화이름만 가져와 새로운 배열에 저장한 후 출력</li>
+        <li>exchanges의 각 통화 변화율 중 가장 큰 변화를 보인 객체 정보를 출력</li>
+        <li>gold의 point 정보와 변화율을 분석하여 전일(yesterday)의 포인트 값을 추정하여 출력</li>
+    </ol>
+    <script src="index.js"></script>
+    <script>
+        //1번 forEach로 풀이
+        console.log('1번 문제');
+        const exchanges = section.exchanges;
+        const valueArr = [];
+        let keyName = 'name';
+        exchanges.forEach(function(el, i, arr) {
+            // 여기서 el은 object
+            valueArr.push(el[keyName])
+        });
+        console.log(valueArr);
+        
+        // 1번 map으로 풀이
+        const nameArr = exchanges.map(function(el){
+            return el[keyName]
+        });
+        console.log(nameArr);
+        
+        
+        // 2번
+        console.log('2번 문제');
+        const updown = exchanges.map(function(el){
+            return Math.abs(el['updown']);
+        });
+        function myArrayMax(arr) {
+            return Math.max.apply(null, arr);
+        }
+        const bigChange = exchanges.filter(function(el, i, arr){
+            return Math.abs(arr[i]['updown']) == myArrayMax(updown);
+        });
+        console.log(bigChange[0])
+
+        // 2번 다른 방식
+        let high = 0;
+        const bigger = exchanges.filter(function(el){
+            if(Math.abs(el.updown) > high) {
+                high = Math.abs(el.updown);
+                return true;
+            }
+        });
+        console.log(bigger.pop());
+
+        
+        // 3번
+        console.log('3번 문제');
+        const gold = section['gold'];
+        // console.log(gold);
+        function comparePoint(el, i, arr) {
+            return (el.point) - (arr[i]['updown']);
+        }
+        const yesterday = gold.map(comparePoint);
+        console.log(yesterday);
+        console.log(`어제의 국제금시세 : ${yesterday[0]}, 국내금시세 : ${yesterday[1]}`);
+        
+        // 3번 다른 방식
+        const points = gold.map(function(el){
+            let yDay = 0;
+            for(const key in el){
+                if(key == 'point'){
+                    yDay += el[key];
+                }
+                if(key == 'updown'){
+                    yDay -= el[key];
+                }
+            }
+            return yDay;
+        });
+        console.log(points);
+        console.log(`어제의 국제금시세 : ${points[0]}, 국내금시세 : ${points[1]}`);
+    </script>
+</body>
+</html>
