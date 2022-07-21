@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또추첨기 Ver 1.0</title>
+</head>
+<body>
+    <h1>
+        1 ~ 45 까지의 중복되지 않는 숫자 6개가 랜덤으로 추출되어 순서대로 출력하기<br>
+        단, Set 객체를 사용할 것
+    </h1>
+    <button type="button" id="printBtn">로또 번호를 알려줘!</button>
+    <h2 id="printResult"></h2>
+    <script>
+        // 로또 번호 추첨 함수
+        function makeLottoNum() {
+            const lotto = new Set();
+
+            // while문 이용
+            // while (lotto.size < 6) {
+            //     lotto.add(Math.floor(Math.random()*45)+1);
+            // }
+
+            // for문 이용(증감식을 lotto의 size로!)
+            for(let i = 0; lotto.size < 6; i++) {
+                let rNum = Math.floor(Math.random()*45)+1;
+                lotto.add(rNum);
+                console.log(i, rNum); // i는 실행횟수
+            }
+            const lottoArr = [];
+            lotto.forEach(element => {
+                lottoArr.push(element);
+            });
+            document.getElementById('printResult').innerText = lottoArr.sort(function(a, b){return a - b});
+        }
+        document.getElementById('printBtn').addEventListener('click', makeLottoNum);
+    </script>
+</body>
+</html>
