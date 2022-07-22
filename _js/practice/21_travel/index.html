@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel WebSite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/travel.css">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <h1 class="title"><i class="fa fa-plane"></i> Travel</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a id="home" class="click active">Home</a></li>
+                <li><a id="seoul" class="click">Seoul</a></li>
+                <li><a id="tokyo" class="click">Tokyo</a></li>
+                <li><a id="paris" class="click">Paris</a></li>
+            </ul>
+        </nav>
+        <section>
+            <div class="travel-img home" id="bgImg"></div>
+        </section>
+    </div>
+    <script>
+        // function changeImg(self) {
+        //     // let imgUrl = '';
+        //     // switch (self.innerText) {
+        //     //     case "Home":
+        //     //         imgUrl = "url('images/home.jpg')";
+        //     //         break;
+        //     //     case "Seoul":
+        //     //         imgUrl = "url('images/seoul.jpg')";
+        //     //         break;
+        //     //     case "Tokyo":
+        //     //         imgUrl = "url('images/tokyo.jpg')";
+        //     //         break;
+        //     //     case "Paris":
+        //     //         imgUrl = "url('images/paris.jpg')";
+        //     //         break;
+        //     //     default:
+        //     //         break;
+        //     // }
+        //     document.getElementById('bgImg').style.backgroundImage = `url('images/${self.id}.jpg')`;
+        //     changeFontWeight(self);
+        // }
+
+        document.addEventListener('click', function(e){
+            // let targetId = e.target.id;
+            // let targetCls = e.target.classList[0];
+            let targetCls = e.target.classList.contains('click'); // true or false
+            if(targetCls) {
+                document.getElementById('bgImg').style.backgroundImage = `url('images/${e.target.id}.jpg')`;
+                changeFontWeight(e.target);
+            }
+        })
+
+        function changeFontWeight(self) {
+            let aTags = document.getElementsByClassName('click')
+            for (let a of aTags) {
+                a.style.fontWeight = "normal";
+            }
+            self.style.fontWeight = "bold";
+        }
+    </script>
+</body>
+</html>
