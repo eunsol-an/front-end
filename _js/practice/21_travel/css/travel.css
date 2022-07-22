@@ -1,0 +1,57 @@
+.wrap {
+    width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+header {
+    margin: 100px auto;
+}
+.title {
+    display: inline;
+    font-size: 3rem;
+    color: #61A4BC;
+    border: 8px solid #61A4BC;
+    padding: 0 20px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    display: inline;
+    margin: 0 20px;
+}
+a {
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    color: #61A4BC;
+}
+a:active {
+    color: red;
+}
+a:hover {
+    cursor: pointer;
+}
+.active {
+    font-weight: bold;
+}
+.travel-img {
+    width: 1200px;
+    height: 900px;
+    background-position: center;
+    background-size: cover;
+    margin: 100px auto;
+}
+.home {
+    background-image: url(../images/home.jpg);
+}
+/* .seoul {
+    background-image: url(../images/seoul.jpg);
+}
+.tokyo {
+    background-image: url(../images/tokyo.jpg);
+}
+.paris {
+    background-image: url(../images/paris.jpg);
+} */
+
