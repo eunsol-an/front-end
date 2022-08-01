@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>깨깨오톡</title>
+    <style>
+        .wrap {
+            width: 400px;
+            margin: auto;
+            box-shadow: 1px 1px 5px #cfcfcf;
+        }
+        .profile-field {
+            height: 100px;
+        }
+        .text-field {
+            height: 400px;
+            background-color: #cfdff1;
+            padding: 30px 20px;
+            overflow: auto;
+        }
+        .text-line-left {
+            margin-bottom: 35px;
+        }
+        .text-line-right {
+            margin-bottom: 35px;
+            text-align: right;
+        }
+        .you-text {
+            background-color: white;
+            border-radius: 15px 15px 15px 0;
+            padding: 8px 15px;
+            
+        }
+        .me-text {
+            background-color: yellow;
+            border-radius: 15px 15px 0 15px;
+            padding: 8px 15px;
+
+        }
+        .input-field {
+            padding: 10px;
+            background-color: #f3f3f3;
+        }
+        #msg {
+            width: 300px;
+            height: 60px;
+        }
+        #sbmBtn {
+            width: 66px;
+            height: 66px;
+            border: none;
+            background-color: #4493df;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="profile-field">
+            구남친
+        </div>
+        <div class="text-field">
+            <div class="text-line-left"><span class="you-text">잘 지내?</span></div>
+            <div class="text-line-left"><span class="you-text">자니?</span></div>
+        </div>
+        <div class="input-field">
+            <input type="text" id="msg" placeholder="대화내용이 들어갑니다.">
+            <button type="button" id="sbmBtn">전송</button>
+        </div>
+    </div>
+    <script src="../../resources/jquery-3.6.0.min.js"></script>
+    <script>
+        function sendMessage() {
+            let msg = $('#msg');
+               if (msg.val() != "") {
+                   $('.text-field').append('<div class="text-line-right"><span class="me-text">' + msg.val() + '</span></div>');
+                   msg.val("").focus();
+               }
+        }
+        $(function () {
+           $('#sbmBtn').on('click', sendMessage);
+           $('#msg').on('keypress', (e) => {
+               if(e.key === "Enter") {
+                   e.preventDefault();
+                   sendMessage();
+               }
+           });
+        });
+        
+    </script>
+</body>
+</html>
